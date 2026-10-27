@@ -37,18 +37,18 @@ reservation to be dropped before raising, so a failed upload leaves nothing behi
 This package only moves bytes. The plugin owns the storage and the policy, and serves four methods
 on its own contract:
 
-| method | what it must do |
-|---|---|
-| `CreateAttachment({ name, mimeType, size })` | reserve an upload, answer `{ id, name, mimeType, size }` |
-| `WriteAttachment({ attachmentId, offset, data })` | take one consecutive 48 KiB piece, base64 |
-| `ReadAttachment({ ...scope, attachmentId, offset })` | answer `{ data }` for one piece |
-| `DeleteAttachment({ attachmentId })` | drop an upload nobody has claimed |
+| method                                               | what it must do                                          |
+| ---------------------------------------------------- | -------------------------------------------------------- |
+| `CreateAttachment({ name, mimeType, size })`         | reserve an upload, answer `{ id, name, mimeType, size }` |
+| `WriteAttachment({ attachmentId, offset, data })`    | take one consecutive 48 KiB piece, base64                |
+| `ReadAttachment({ ...scope, attachmentId, offset })` | answer `{ data }` for one piece                          |
+| `DeleteAttachment({ attachmentId })`                 | drop an upload nobody has claimed                        |
 
 The rules those four are expected to keep, learned from the implementations that exist:
 
 - **Nothing is readable until it is whole and claimed by a message.** Until then an upload is
   pending — collectable, and never shown.
-- **The same piece twice is one piece.** A retry must not corrupt an upload; a *different* piece at
+- **The same piece twice is one piece.** A retry must not corrupt an upload; a _different_ piece at
   an offset already written is a conflict and is refused.
 - **Pieces arrive in order.** The bytes received so far are also the next legal offset, so a gap
   cannot exist.
@@ -66,8 +66,8 @@ exactly this, and either reads as a specification.
 ## Limits
 
 ```ts
-MAX_MEDIA_BYTES   // 10 MiB — the largest file
-MEDIA_CHUNK_BYTES // 48 KiB — one piece, sized to fit the 100 KB a contract call accepts
+MAX_MEDIA_BYTES; // 10 MiB — the largest file
+MEDIA_CHUNK_BYTES; // 48 KiB — one piece, sized to fit the 100 KB a contract call accepts
 ```
 
 `attachmentOf(raw)` validates an answer that came off the wire and throws `invalid_attachment`

@@ -10,8 +10,7 @@ import {
   uploadMedia,
 } from "./index.js";
 
-const bytesOf = (size: number): Uint8Array =>
-  Uint8Array.from({ length: size }, (_, index) => (index * 7) % 256);
+const bytesOf = (size: number): Uint8Array => Uint8Array.from({ length: size }, (_, index) => (index * 7) % 256);
 
 /**
  * A plugin that answers the four methods, holding the pieces in memory.
@@ -119,9 +118,9 @@ describe("uploading", () => {
       throw new Error("invalid_media_chunk");
     });
 
-    await expect(
-      uploadMedia(plugin.call, { name: "x", mimeType: "image/png", bytes: bytesOf(10) }),
-    ).rejects.toThrow("invalid_media_chunk");
+    await expect(uploadMedia(plugin.call, { name: "x", mimeType: "image/png", bytes: bytesOf(10) })).rejects.toThrow(
+      "invalid_media_chunk",
+    );
 
     expect(plugin.call.mock.calls.at(-1)?.[0]).toBe("DeleteAttachment");
   });

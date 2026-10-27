@@ -28,7 +28,9 @@
   "sideEffects": false,
   "scripts": {
     "test": "vitest run",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "biome check .",
+    "fix": "biome check --write ."
   },
   "engines": {
     "node": ">=22"
@@ -37,8 +39,9 @@
     "access": "public"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.6.3",
+    "@types/node": "^26.6.5",
     "typescript": "~6.0.3",
-    "vitest": "^3.2.4",
-    "@types/node": "^26.6.5"
+    "vitest": "^3.2.4"
   }
 }
