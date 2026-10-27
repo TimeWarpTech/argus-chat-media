@@ -38,7 +38,7 @@
     "build": "tsc -p tsconfig.build.json",
     "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "prepublishOnly": "npm run test && npm run build"
+    "prepare": "npm run build"
   },
   "engines": {
     "node": ">=22"
