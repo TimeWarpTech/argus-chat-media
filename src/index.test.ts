@@ -8,7 +8,7 @@ import {
   MAX_MEDIA_BYTES,
   MEDIA_CHUNK_BYTES,
   uploadMedia,
-} from "./index";
+} from "./index.js";
 
 const bytesOf = (size: number): Uint8Array =>
   Uint8Array.from({ length: size }, (_, index) => (index * 7) % 256);
