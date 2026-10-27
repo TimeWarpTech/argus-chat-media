@@ -20,25 +20,15 @@
     "upload"
   ],
   "files": [
-    "dist",
     "src",
     "README.md",
     "LICENSE"
   ],
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
-    }
-  },
+  "exports": "./src/index.ts",
   "sideEffects": false,
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
     "test": "vitest run",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
-    "prepare": "npm run build"
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "engines": {
     "node": ">=22"

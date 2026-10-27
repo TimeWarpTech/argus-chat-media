@@ -80,8 +80,27 @@ ceiling is 10 MiB and not a gigabyte. Video of any real length wants a different
 mechanism is a change to the kernel — tracked as
 [argus-kernel#118](https://github.com/TimeWarpTech/argus-kernel/issues/118).
 
+## Consuming it
+
+It exports TypeScript directly, exactly as the kernel's own workspace packages do — there is no
+build step and no `dist`. Bun, `tsx` and Vite all read it as it is, and the backend's bundler is
+configured to pull `@creativepetabyte/*` in rather than leave it external.
+
+Inside the kernel's monorepo it is a **git submodule** at `packages/chat-media`, so the workspace
+resolves it as before while the code lives here:
+
+```
+git submodule update --init
+```
+
+A plugin outside the monorepo takes it as a dependency:
+
+```json
+"@creativepetabyte/argus-chat-media": "github:TimeWarpTech/argus-chat-media"
+```
+
 ## Tests
 
 ```
-npm test
+npm install && npm test
 ```
