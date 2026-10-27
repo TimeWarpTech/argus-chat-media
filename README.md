@@ -18,12 +18,21 @@ Two sides that disagree about where a chunk ends corrupt a file without anybody 
 ## Using it
 
 ```ts
-import { uploadMedia, downloadMedia, MAX_MEDIA_BYTES } from "@creativepetabyte/argus-chat-media";
+import {
+	uploadMedia,
+	downloadMedia,
+	MAX_MEDIA_BYTES,
+} from "@creativepetabyte/argus-chat-media";
 
 // In the screen: `call` reaches this plugin's own contract, and it must THROW on refusal.
-const ask = (method: string, input: Record<string, unknown>) => call(MY_CONTRACT, method, input);
+const ask = (method: string, input: Record<string, unknown>) =>
+	call(MY_CONTRACT, method, input);
 
-const attachment = await uploadMedia(ask, { name: file.name, mimeType: file.type, bytes });
+const attachment = await uploadMedia(ask, {
+	name: file.name,
+	mimeType: file.type,
+	bytes,
+});
 // → { id, name, mimeType, size }. Now name it in whatever method stores a message.
 
 const bytes = await downloadMedia(ask, attachment, { messageId });

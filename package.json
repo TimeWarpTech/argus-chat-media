@@ -1,45 +1,45 @@
 {
-  "name": "@creativepetabyte/argus-chat-media",
-  "version": "0.1.0",
-  "description": "Send a file through an Argus plugin contract call, in pieces that fit the 100 KB a call accepts.",
-  "license": "MIT",
-  "type": "module",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TimeWarpTech/argus-chat-media.git"
-  },
-  "homepage": "https://github.com/TimeWarpTech/argus-chat-media#readme",
-  "bugs": {
-    "url": "https://github.com/TimeWarpTech/argus-chat-media/issues"
-  },
-  "keywords": [
-    "argus",
-    "plugin",
-    "chat",
-    "attachment",
-    "upload"
-  ],
-  "files": [
-    "src",
-    "README.md",
-    "LICENSE"
-  ],
-  "exports": "./src/index.ts",
-  "sideEffects": false,
-  "scripts": {
-    "test": "vitest run",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
-  },
-  "engines": {
-    "node": ">=22"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^2.6.3",
-    "@types/node": "^26.6.5",
-    "typescript": "~6.0.3",
-    "vitest": "^3.2.4"
-  }
+	"name": "@creativepetabyte/argus-chat-media",
+	"version": "0.1.0",
+	"description": "Send a file through an Argus plugin contract call, in pieces that fit the 100 KB a call accepts.",
+	"license": "MIT",
+	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/TimeWarpTech/argus-chat-media.git"
+	},
+	"homepage": "https://github.com/TimeWarpTech/argus-chat-media#readme",
+	"bugs": {
+		"url": "https://github.com/TimeWarpTech/argus-chat-media/issues"
+	},
+	"keywords": [
+		"argus",
+		"plugin",
+		"chat",
+		"attachment",
+		"upload"
+	],
+	"files": [
+		"src",
+		"README.md",
+		"LICENSE"
+	],
+	"exports": "./src/index.ts",
+	"sideEffects": false,
+	"scripts": {
+		"test": "vitest run",
+		"typecheck": "tsc -p tsconfig.json --noEmit"
+	},
+	"engines": {
+		"node": ">=22"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.6.3",
+		"@types/node": "^26.6.5",
+		"typescript": "~6.0.3",
+		"vitest": "^3.2.4"
+	}
 }
