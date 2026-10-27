@@ -23,7 +23,7 @@ function fakePlugin() {
   const files = new Map<string, { file: Attachment; chunks: Map<number, string>; received: number }>();
   let next = 0;
 
-  const call = vi.fn(async (method: string, input: Record<string, unknown>) => {
+  const call = vi.fn(async (method: string, input: Record<string, unknown>): Promise<unknown> => {
     if (method === "CreateAttachment") {
       next += 1;
       const file: Attachment = {
